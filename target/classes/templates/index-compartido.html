@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>SaberPro</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="icon" href="../img/iconoWeb.webp" type="image/x-icon"> <!-- Icono favicon -->
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url(			https://cdn.colombia.com/sdi/2020/01/16/resultados-ecaes-prueba-saber-pro-802274.jpg); /* Asegúrate que esta URL sea válida y apunte a una imagen */
+            background-size: cover; 
+            background-position: center;
+            color: white; /* Cambia el color del texto */
+            font-family: 'Arial', sans-serif;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* Añade sombra al texto */
+        }
+
+        .container {
+            background: rgb(113, 174, 230); /* Fondo semitransparente para el contenedor */
+            border-radius: 15px; /* Bordes redondeados */
+            padding: 40px;
+            box-shadow: 0 4px 20px rgb(0, 0, 128); /* Sombra alrededor del contenedor */
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn-large {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            margin: 10px;
+            transition: background-color 0.3s, transform 0.3s; /* Efecto de transición */
+        }
+
+        .btn-large:hover {
+            background-color: rgb(0, 64, 128); /* Cambia el color del fondo al pasar el mouse */
+            transform: translateY(-2px); /* Levanta el botón ligeramente */
+        }
+
+        h1 {
+            font-weight: 700; /* Texto más audaz */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>¡Bienvenido al sistema Saber Pro!</h1>
+            <h1>Elige tu usuario </h1>
+        </div>
+        <div class="btn-container">
+            <a th:href="@{coordinador/login}" class="btn btn-primary btn-lg btn-large">Coordinador</a>
+            <a th:href="@{estudiante/login}" class="btn btn-primary btn-lg btn-large">Estudiante</a>
+        </div>
+    </div>
+</body>
+
+</html>
