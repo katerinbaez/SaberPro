@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado Total</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="../img/iconoWeb.webp" type="image/x-icon"> <!-- Icono favicon -->
+    <style>
+        body {
+            height: 100vh;
+            background-image: url('			https://static6.depositphotos.com/1004338/648/v/950/depositphotos_6489591-stock-illustration-mathematics-background.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+        }
+
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-title h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .container-fluid {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .card h2 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        .info {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px 0;
+        }
+
+        .divider {
+            width: 1px;
+            height: 50px;
+            background-color: #007bff;
+            margin: 0 15px;
+        }
+
+        .info h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .info p {
+            margin: 5px 0;
+            font-size: 1.1rem;
+        }
+
+        .bottom {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .info.nivel-color-1 {
+            background-color: #f87d7d;
+        }
+
+        .info.nivel-color-2 {
+            background-color: #99ccff;
+        }
+
+        .info.nivel-color-3 {
+            background-color: #ffff99;
+        }
+
+        .info.nivel-color-4 {
+            background-color: #99ff99;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" th:href="@{/estudiante/index}">
+            <img src="../img/saberprologo.png" width="180" height="60" alt="Logo">
+        </a>
+        <div class="navbar-title">
+            <h1>Resultado Total de la prueba</h1>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+		<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<!-- Botón de Logout -->
+		
+							<a class="btn  my-2 my-sm-0" type="submit" th:href="@{/estudiante/index}"> <button class="Btn">
+		
+									<div class="sign"><svg viewBox="0 0 512 512">
+											<path
+												d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z">
+											</path>
+										</svg></div>
+		
+									<div class="text">Logout</div>
+								</button></a>
+						</li>
+					</ul>
+				</div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="card">
+            <h2>Resultado Total</h2>
+            <div class="bottom">
+                <div class="info nivel-color-1">
+                    <h3 th:text="${totalLevel}"></h3>
+                    <p>Nivel</p>
+                </div>
+                <div class="divider"></div>
+                <div class="info">
+                    <h3>Puntaje</h3>
+                    <p th:text="${total}"></p>
+                </div>
+                <div class="divider"></div>
+                <div class="info">
+                    <h3>Estado</h3>
+                    <p th:text="${estado}"></p> <!-- Aprobado o Desaprobado -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery y Popper.js necesarios para Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Script para asignar colores de fondo dependiendo del nivel -->
+    <script>
+        var niveles = document.querySelectorAll(".level");
+        niveles.forEach(function (nivel) {
+            var textoNivel = nivel.textContent.trim();
+            var infoDiv = nivel.parentElement;
+            switch (textoNivel) {
+                case "Nivel 1":
+                    infoDiv.classList.add("nivel-color-1");
+                    break;
+                case "Nivel 2":
+                    infoDiv.classList.add("nivel-color-2");
+                    break;
+                case "Nivel 3":
+                    infoDiv.classList.add("nivel-color-3");
+                    break;
+                case "Nivel 4":
+                    infoDiv.classList.add("nivel-color-4");
+                    break;
+                default:
+                    break;
+            }
+        });
+    </script>
+</body>
+
+</html>

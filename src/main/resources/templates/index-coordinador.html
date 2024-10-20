@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>SaberPro</title>
+    <link rel="icon" href="../img/iconoWeb.webp" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            height: 100vh;
+            background-image: url('https://i.pinimg.com/564x/9d/24/df/9d24dfa532a036b2ac686de343b0b607.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .title {
+            text-align: center;
+            color: white;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn-large {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            margin: 10px;
+        }
+
+        .navbar-title {
+            position: absolute !important;
+            left: 50% !important;
+            transform: translateX(-50%);
+        }
+		.navbar-primary{
+			background-color: rgb(0, 128, 128) !important;
+		}
+
+        .container {
+            margin-top: 10%;
+            backdrop-filter: blur(5px);
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparente */
+        }
+
+        h1 {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: white;
+        }
+
+        /* Estilo de los botones */
+        .btn {
+            transition: transform 0.2s;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-primary bg-primary">
+        <a class="navbar-brand" th:href="@{/}">
+            <img src="../img/saberprologo.png" width="200" height="90" style="margin-left: 20px;" class="d-inline-block align-top" alt="Logo">
+        </a>
+        <div class="navbar-title">
+            <h1>SISTEMA SABER PRO</h1>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="btn my-2 my-sm-0" type="submit" th:href="@{/}">
+                        <button class="Btn">
+                            <div class="sign">
+                                <svg viewBox="0 0 512 512">
+                                    <path
+                                        d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="text">Logout</div>
+                        </button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="title">
+            <h1>!BIENVENIDO/A SEA <span th:text="${usuario}"></span>!</h1>
+            <h2>Selecciona la opción que necesite</h2>
+        </div>
+        <div class="btn-container">
+            <a th:href="@{/coordinador/estudiante/crear}" title="Agregar" class="btn btn-primary btn-lg btn-large">
+                <i class="bi bi-person-add" style="font-size: 40px;"></i> Agregar
+            </a>
+            <a th:href="@{/coordinador/lista}" title="Informes" class="btn btn-primary btn-lg btn-large">
+                <i class="bi bi-file-earmark-text-fill" style="font-size: 40px;"></i> Informes
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lista Estudiantes</title>
+	<!-- Enlaces a los archivos CSS de Bootstrap -->
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<link rel="icon" href="../img/iconoWeb.webp" type="image/x-icon"> <!-- Icono favicon -->
+
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-image: url('			https://i.pinimg.com/enabled_hi/564x/34/97/25/34972505a38af7fc1e689d17da982565.jpg');
+
+		}
+		table{
+				background-color: aliceblue;
+				padding-left: 200%;
+				border-color:aqua !important;
+
+				}
+				
+				.table-info{
+					background-color: rgb(64, 128, 128);
+					position: center;
+					color: white;
+				}
+				
+				.container{
+					margin-top: 2%;
+					margin-right: 100%;
+				}
+		
+			.navbar {
+				width: 220%;
+				background-color: rgb(0, 128, 128)!important;
+				color: white;
+				font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+				
+			}
+			navbar-title{
+				padding-left: 8px 500px !important;
+
+			}
+		.Btn {
+		  display: flex;
+		  align-items: center;
+		  justify-content: flex-start;
+		  width: 45px;
+		  height: 45px;
+		  border: none;
+		  border-radius: 50%;
+		  cursor: pointer;
+		  position: relative;
+		  overflow: hidden;
+		  transition-duration: .3s;
+		  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+		  background-color: rgb(255, 65, 65);
+		}
+		
+		/* plus sign */
+		.sign {
+		  width: 100%;
+		  transition-duration: .3s;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		}
+		
+		.sign svg {
+		  width: 17px;
+		}
+		
+		.sign svg path {
+		  fill: white;
+		}
+		/* text */
+		.text {
+		  position: absolute;
+		  right: 0%;
+		  width: 0%;
+		  opacity: 0;
+		  color: white;
+		  font-size: 1.2em;
+		  font-weight: 600;
+		  transition-duration: .3s;
+		}
+		/* hover effect on button width */
+		.Btn:hover {
+		  width: 125px;
+		  border-radius: 40px;
+		  transition-duration: .3s;
+		}
+		
+		.Btn:hover .sign {
+		  width: 30%;
+		  transition-duration: .3s;
+		  padding-left: 20px;
+		}
+		/* hover effect button's text */
+		.Btn:hover .text {
+		  opacity: 1;
+		  width: 70%;
+		  transition-duration: .3s;
+		  padding-right: 10px;
+		}
+		/* button click effect*/
+		.Btn:active {
+		  transform: translate(2px ,2px);
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" th:href="@{/coordinador/index}">
+			<!-- Puedes cambiar "Logo" por la imagen que desees -->
+			<img src="../img/saberprologo.png" width="200" height="80" class="d-inline-block align-top" alt="Logo">
+			<!-- O si prefieres solo texto -->
+			<!-- Logo -->
+		</a>
+		<div class="navbar-title">
+			<!-- Título -->
+			<h1>LISTA DE REGISTROS SABER PRO</h1>
+		</div>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<!-- Botón de Logout -->
+
+					<a class="btn  my-2 my-sm-0" type="submit" th:href="@{/}"> <button class="Btn">
+
+							<div class="sign"><svg viewBox="0 0 512 512">
+									<path
+										d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z">
+									</path>
+								</svg></div>
+
+							<div class="text">Logout</div>
+						</button></a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container">
+		<table class="table table-striped 		table-bordered border-primary">
+			<thead class="table-info">
+				<tr>
+					<th>ID</th>
+					<th>Usuario</th>
+					<th>Contraseña</th>
+					<th>Tipo de documento</th>
+					<th>Número de documento</th>
+					<th>Primer Apellido</th>
+					<th>Segundo Apellido</th>
+					<th>Primer Nombre</th>
+					<th>Segundo Nombre</th>
+					<th>Correo Electrónico</th>
+					<th>Número Telefónico</th>
+					<th>Número de registro</th>
+					<th>Puntaje Saber Pro</th>
+					<th>Puntaje Nivel Saber Pro</th>
+					<th>Comunicación Escrita</th>
+					<th>Nivel de Comunicación Escrita</th>
+					<th>Razonamiento Cuantitativo</th>
+					<th>Nivel de Razonamiento Cuantitativo</th>
+					<th>Lectura Crítica</th>
+					<th>Nivel de Lectura Crítica</th>
+					<th>Competencias Ciudadanas</th>
+					<th>Nivel de Competencias Ciudadanas</th>
+					<th>Inglés</th>
+					<th>Nivel Inglés</th>
+					<th>Nivel de Inglés</th>
+					<th>Formulación De Proyectos De Ingeniería</th>
+					<th>Nivel de Formulación De Proyectos De Ingeniería</th>
+					<th>Pensamiento Científico - Matemáticas Y Estadística</th>
+					<th>Nivel de Pensamiento Científico - Matemáticas Y Estadística</th>
+					<th>Diseño De Software</th>
+					<th>Nivel de Diseño De Software</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="estudiante : ${estudiantes}">
+					<td th:text="${estudiante.id}"></td>
+					<td th:text="${estudiante.usuario}"></td>
+					<td th:text="${estudiante.contrasena}"></td>
+					<td th:text="${estudiante.tipoDocumento}"></td>
+					<td th:text="${estudiante.numeroDocumento}"></td>
+					<td th:text="${estudiante.primerApellido}"></td>
+					<td th:text="${estudiante.segundoApellido}"></td>
+					<td th:text="${estudiante.primerNombre}"></td>
+					<td th:text="${estudiante.segundoNombre}"></td>
+					<td th:text="${estudiante.correoElectronico}"></td>
+					<td th:text="${estudiante.numeroTelefonico}"></td>
+					<td th:text="${estudiante.numeroRegistro}"></td>
+					<td th:text="${estudiante.puntaje}"></td>
+					<td th:text="${estudiante.nivelSaberPro}"></td>
+					<td th:text="${estudiante.comunicacionEscrita}"></td>
+					<td th:text="${estudiante.nivelComunicacionEscrita}"></td>
+					<td th:text="${estudiante.razonamientoCuantitativo}"></td>
+					<td th:text="${estudiante.nivelRazonamientoCuantitativo}"></td>
+					<td th:text="${estudiante.lecturaCritica}"></td>
+					<td th:text="${estudiante.nivelLecturaCritica}"></td>
+					<td th:text="${estudiante.competenciasCiudadanas}"></td>
+					<td th:text="${estudiante.nivelCompetenciasCiudadanas}"></td>
+					<td th:text="${estudiante.ingles}"></td>
+					<td th:text="${estudiante.nivelIngles}"></td>
+					<td th:text="${estudiante.nivelDeIngles}"></td>
+					<td th:text="${estudiante.formulacionProyectosIngenieria}"></td>
+					<td th:text="${estudiante.nivelFormulacionProyectosIngenieria}"></td>
+					<td th:text="${estudiante.pensamientoCientifico}"></td>
+					<td th:text="${estudiante.nivelPensamientoCientifico}"></td>
+					<td th:text="${estudiante.diseñoSoftware}"></td>
+					<td th:text="${estudiante.nivelDiseñoSoftware}"></td>
+					<td>
+						<a th:href="@{/coordinador/estudiante/edit/{id}(id=${estudiante.id})}"
+							class="btn btn-primary"><i class="bi bi-pencil-fill"></i></a>
+						<a th:href="@{/coordinador/estudiante/delete/{id}(id=${estudiante.id})}"
+							class="btn btn-danger"><i class="bi bi-trash3-fill"></i></a>
+					</td>
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+
+	<!-- Scripts de Bootstrap (jQuery primero, luego Popper.js y por último Bootstrap JS) -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
