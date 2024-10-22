@@ -124,7 +124,7 @@ public class ControllerWebEstudiante {
             return "redirect:/estudiante/index"; // Redirigir a la página de inicio
         } else {
             model.addAttribute("error", true);
-            return "login-coordinador"; // Mostrar mensaje de error si las credenciales son incorrectas
+            return "login-estudiante"; // Mostrar mensaje de error si las credenciales son incorrectas
         }
     }
     
