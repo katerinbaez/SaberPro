@@ -1,6 +1,6 @@
 # 🧠 Sistema Saber Pro
 
-Sistema académico diseñado para la gestión de evaluaciones tipo Saber Pro, desarrollado con Spring MVC y JPA. Permite administrar estudiantes, evaluadores, resultados y reportes.
+    Sistema académico diseñado para la gestión de evaluaciones tipo Saber Pro, desarrollado con Spring MVC y JPA. Permite administrar estudiantes, coordinador, resultados y reportes.
 
 ---
 
