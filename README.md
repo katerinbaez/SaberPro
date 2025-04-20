@@ -71,7 +71,7 @@ Pasos claros para ejecutar el proyecto localmente:
 
 1. Clonar el repositorio.
 
-2. Abrirlo en mongoDB.
+2. Abrirlo en SpirngBoot.
 
 3. Configura la base de datos.
 
